@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>WebDev Academy</title>
+
+    <style>
+
+        /* =========================
+           GENERAL STYLING
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            /* YOUR BACKGROUND IMAGE */
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.78),
+                    rgba(0, 0, 0, 0.78)
+                ),
+                url(images/logo.png);
+                background-position: center;
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            color: white;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           FIXED HEADER
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            background-color: black;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 15px 6%;
+
+            z-index: 1000;
+
+            border-bottom: 2px solid #d4af37;
+
+            box-shadow:
+                0 3px 15px rgba(0, 0, 0, 0.8);
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        .academy {
+            color: #d4af37;
+            font-size: 15px;
+            margin-left: 5px;
+        }
+
+
+        /* HEADER DESCRIPTION */
+
+        .header-text {
+            color: white;
+            font-size: 15px;
+            text-align: right;
+        }
+
+
+        /* =========================
+           BLUE BANNER
+        ========================== */
+
+        .banner {
+            margin-top: 78px;
+
+            background-color: #d4af37;
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .banner p {
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================== */
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+
+            margin: 50px auto;
+
+            text-align: center;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            padding: 50px 20px;
+
+            background:
+                rgba(0, 0, 0, 0.75);
+
+            border-radius: 15px;
+
+            border: 1px solid #d4af37;
+
+            box-shadow:
+                0 0 25px rgba(212, 175, 55, 0.25);
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: white;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+
+            max-width: 750px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           COURSE CARDS
+        ========================== */
+
+        .courses {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            margin-top: 40px;
+        }
+
+        .course-card {
+            flex: 1;
+
+            background:
+                rgba(0, 0, 0, 0.85);
+
+            border: 1px solid #d4af37;
+
+            border-radius: 12px;
+
+            padding: 30px 20px;
+
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .course-card h3 {
+            color: #d4af37;
+
+            margin-bottom: 15px;
+
+            font-size: 24px;
+        }
+
+        .course-card p {
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           ENROLLMENT
+        ========================== */
+
+        .enrollment {
+            margin-top: 40px;
+
+            padding: 35px 20px;
+
+            background: rgba(0, 0, 0, 0.85);
+
+            border-radius: 15px;
+
+            border: 1px solid #007bff;
+        }
+
+        .enrollment h2 {
+            color: #d4af37;
+
+            margin-bottom: 15px;
+        }
+
+        .enrollment p {
+            margin: 8px 0;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .enroll-button {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 14px 35px;
+
+            background: #d4af37;
+
+            color: black;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+        }
+
+        .enroll-button:hover {
+            background: white;
+
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           CONTACT FORM
+        ========================== */
+
+        .contact {
+            margin-top: 40px;
+
+            background: rgba(0, 0, 0, 0.9);
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid #d4af37;
+        }
+
+        .contact h2 {
+            color: #d4af37;
+
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+
+            text-align: left;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+        }
+        .radio-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.radio-options input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+.radio-options label {
+    display: inline;
+    margin: 0;
+}
+        
+
+        input,
+        textarea {
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #555;
+
+            border-radius: 7px;
+
+            background: #111;
+
+            color: white;
+
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 120px;
+
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+
+            border-color: #d4af37;
+        }
+
+        .submit-button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background: #007bff;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #0056b3;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: black;
+
+            border-top: 2px solid #d4af37;
+
+            text-align: center;
+
+            padding: 25px 15px;
+
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 7px 0;
+        }
+
+        footer .gold {
+            color: #d4af37;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           MOBILE RESPONSIVENESS
+        ========================== */
+
+        @media (max-width: 768px) {
+
+            header {
+                padding: 12px 20px;
+
+                flex-direction: column;
+
+                gap: 5px;
+
+                text-align: center;
+            }
+
+            .logo {
+                font-size: 26px;
+            }
+
+            .academy {
+                font-size: 13px;
+            }
+
+            .header-text {
+                font-size: 12px;
+
+                text-align: center;
+            }
+
+            .banner {
+                margin-top: 100px;
+
+                padding: 25px 15px;
+            }
+
+            .banner h2 {
+                font-size: 22px;
+            }
+
+            .banner p {
+                font-size: 14px;
+            }
+
+            main {
+                width: 94%;
+
+                margin-top: 30px;
+            }
+
+            .hero {
+                padding: 35px 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .courses {
+                flex-direction: column;
+            }
+
+            .course-card {
+                width: 100%;
+            }
+
+            .enrollment {
+                padding: 25px 15px;
+            }
+
+            .contact {
+                padding: 20px 15px;
+            }
+        }
+
+
+        /* SMALL PHONES */
+
+        @media (max-width: 400px) {
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .hero h1 {
+                font-size: 27px;
+            }
+
+            .banner h2 {
+                font-size: 19px;
+            }
+
+            .course-card h3 {
+                font-size: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            Web<span>Dev</span>
+            <small class="academy">Academy</small>
+        </div>
+
+        <div class="header-text">
+           <p>Home of Web Designing & Game Development</p>
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         BLUE BANNER
+    ========================== -->
+
+    <section class="banner">
+
+        <h2>
+            Learn Everything About Web Designing & Game Development
+        </h2>
+
+        <p>
+            Build websites. Create games. Grow digitally with the world.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <h1>
+                Welcome to <span>WebDev Academy</span>
+            </h1>
+
+            <p>
+                A modern coding academy where teens and children
+                can learn practical web development and game
+                development skills from the basics.
+            </p>
+
+        </section>
+
+
+        <!-- COURSES -->
+
+        <section class="courses">
+
+            <div class="course-card">
+
+                <h3>
+                    💻 Web Development
+                </h3>
+
+                <p>
+                    Learn how to create beautiful and responsive
+                    websites using HTML, CSS, JavaScript and
+                    modern web development techniques.
+                </p>
+
+            </div>
+
+
+            <div class="course-card">
+
+                <h3>
+                    🎮 Game Development
+                </h3>
+
+                <p>
+                    Learn the fundamentals of game development
+                    and discover how games are designed,
+                    developed and brought to life.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ENROLLMENT -->
+
+        <section class="enrollment">
+
+            <h2>
+                🚀 Join Our Coding Classes
+            </h2>
+
+            <p>
+                <strong>Who Can Join:</strong>
+                Teens & Children
+            </p>
+
+            <p>
+                <strong>Duration:</strong>
+                4 Weeks + 2 FREE Weeks
+            </p>
+
+            <p>
+                <strong>Classes:</strong>
+                Saturdays, 11:00 AM – 12:00 PM
+            </p>
+
+            <p>
+                <strong>Venue:</strong>
+                Online Classes
+            </p>
+
+            <p>
+                <strong>Training Fee:</strong>
+                ₦30,000
+            </p>
+
+            <p>
+                <strong>Start Date:</strong>
+                29th August 2026
+            </p>
+
+            <a href="#contact" class="enroll-button">
+                ENROLL NOW
+            </a>
+
+        </section>
+
+
+        <!-- CONTACT FORM -->
+
+        <section class="contact" id="contact">
+
+            <h2>
+                Your Details
+            </h2>
+
+            <form
+                action="https://api.web3forms.com/submit"
+                method="POST"
+            >
+
+                <!-- WEB3FORMS ACCESS KEY -->
+
+                <input
+                    type="hidden"
+                    name="access_key"
+                    value="cdec08b9-3d56-4607-a4a6-e070eeb45473"
+                >
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Name:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="age">
+                        Age:
+                    </label>
+
+                    <input
+                        type="number"
+                        id="email"
+                        name="age"
+                        placeholder="Your Age"
+                        required maxlength="2"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location:
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="location"
+                        placeholder="Your Location"
+                        required
+                    >
+
+                </div>
+
+
+<div class="form-group">
+
+    <label>
+        Intrest:
+    </label>
+
+    <div class="radio-options">
+
+        <input
+            type="radio"
+            id="yes"
+            name="Intrest"
+            value="Web Designing"
+            required
+        >
+
+        <label for="Intrest">
+            Web Designing
+        </label>
+
+
+        <input
+            type="radio"
+            id="no"
+            name="Intrest"
+            value="Game Development"
+        >
+
+        <label for="Intrest">
+            Game Development
+        </label>
+
+</div> <br>
+            <div class="form-group">
+
+    <label>
+        Any Experience:
+    </label>
+
+    <div class="radio-options">
+
+        <input
+            type="radio"
+            id="yes"
+            name="Experience"
+            value="yes"
+            required
+        >
+
+        <label for="Experience">
+            yes
+        </label>
+
+
+        <input
+            type="radio"
+            id="no"
+            name="Experience"
+            value="no"
+        >
+
+        <label for="Experience">
+            No
+        </label>
+
+</div> <br>
+            <div class="form-group">
+
+                    <label for="comments">
+                        Message:
+                    </label>
+
+                    <textarea
+                        id="comments"
+                        name="comments"
+                        placeholder="Tell us anything you would like us to know..."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    SUBMIT REGISTRATION
+                </button>
+
+            </form>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            WhatsApp:
+            <span class="gold">
+                09072558658
+            </span>
+        </p>
+
+        <p>
+            Email:
+            <span class="gold">
+                nwankwochiziterem2012@gmail.com
+            </span>
+        </p>
+
+        <p class="gold">
+            "Grow Digitally with the World"
+        </p>
+
+        <p>
+            © 2026 WebDev Academy. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+         =====================================
+         "ARE YOU SURE YOU WANT TO LEAVE?"
+         =====================================
+
+         This activates the browser's built-in
+         leave-page warning.
+
+         NOTE:
+         Modern browsers do not allow websites
+         to control the exact wording of this
+         security dialog.
+        */
+
+        let formSubmitted = false;
+
+        const forms = document.querySelectorAll("form");
+
+        forms.forEach(function(form) {
+
+            form.addEventListener("submit", function() {
+
+                formSubmitted = true;
+
+            });
+
+        });
+
+
+        window.addEventListener("beforeunload", function(event) {
+
+            if (!formSubmitted) {
+
+                event.preventDefault();
+
+                event.returnValue = "";
+
+            }
+
+        });
+
+
+        /*
+         =====================================
+         SMOOTH ENROLL BUTTON
+         =====================================
+        */
+
+        const enrollButton =
+            document.querySelector(".enroll-button");
+
+        enrollButton.addEventListener("click", function(event) {
+
+            event.preventDefault();
+
+            document
+                .querySelector("#contact")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        });
+
+
+        /*
+         =====================================
+         FORM SUCCESS MESSAGE
+         =====================================
+        */
+
+        const contactForm =
+            document.querySelector(".contact form");
+
+        contactForm.addEventListener("submit", function() {
+
+            formSubmitted = true;
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
